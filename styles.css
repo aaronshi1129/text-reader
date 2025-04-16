@@ -188,6 +188,10 @@ button:hover {
     min-height: 200px;
 }
 
+.paragraph {
+    margin-bottom: 1.5em;
+}
+
 .word {
     display: inline-block;
     cursor: pointer;
