@@ -1,0 +1,224 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --highlight-color: #fef08a;
+    --radius: 12px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.select-styled {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.file-input-wrapper {
+    position: relative;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    width: fit-content;
+}
+
+.file-label:hover {
+    background: var(--primary-hover);
+}
+
+#fileInput {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.text-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#textInput {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.save-text-group {
+    display: flex;
+    gap: 12px;
+}
+
+#textTitle {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+#speedControl {
+    flex: 1;
+    accent-color: var(--primary-color);
+}
+
+#speedValue {
+    min-width: 40px;
+    font-weight: 500;
+}
+
+.font-size-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-button {
+    padding: 8px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.icon-button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+.reader {
+    font-size: 18px;
+    line-height: 1.8;
+    min-height: 200px;
+}
+
+.word {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.word:hover {
+    background-color: #e2e8f0;
+}
+
+.word.active {
+    background-color: var(--highlight-color);
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .save-text-group {
+        flex-direction: column;
+    }
+    
+    .playback-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .font-size-control {
+        align-self: center;
+    }
+}

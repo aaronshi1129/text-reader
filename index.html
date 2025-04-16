@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Audio Reader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1Simple Audio Reader</h1>
+        <div class="card controls">
+            <select id="bookSelect" class="select-styled">
+                <option value="">-- Select a book --</option>
+                <option value="alice">Alice in Wonderland</option>
+                <option value="sherlock">Sherlock Holmes</option>
+            </select>
+            <div class="input-section">
+                <div class="file-input-wrapper">
+                    <label for="fileInput" class="file-label">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        Upload Text File (.txt)
+                    </label>
+                    <input type="file" id="fileInput" accept=".txt">
+                </div>
+                <div class="text-input-wrapper">
+                    <textarea id="textInput" placeholder="Or paste your text here..."></textarea>
+                    <div class="save-text-group">
+                        <input type="text" id="textTitle" placeholder="Enter title for your text">
+                        <button id="saveText">Save Text</button>
+                    </div>
+                </div>
+            </div>
+            <div class="playback-controls">
+                <button id="playPause">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Play/Pause
+                </button>
+                <div class="speed-control">
+                    <input type="range" id="speedControl" min="0.5" max="2" step="0.1" value="1">
+                    <span id="speedValue">1x</span>
+                </div>
+                <div class="font-size-control">
+                    <button id="decreaseFont" class="icon-button" title="Decrease font size">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <text x="8" y="16" font-size="16">-</text>
+                        </svg>
+                    </button>
+                    <button id="increaseFont" class="icon-button" title="Increase font size">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <text x="6" y="18" font-size="20">+</text>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="reader" class="reader card"></div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "store": "https://cdn.skypack.dev/store2"
+        }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
