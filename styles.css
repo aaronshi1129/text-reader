@@ -204,6 +204,31 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
+        .footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .footer a {
+            display: inline-flex;
+            align-items: center;
+            color: gray;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer a:hover {
+            color: black;
+        }
+        
+        .footer img {
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
 @media (max-width: 640px) {
     .container {
         padding: 12px;
