@@ -208,31 +208,6 @@ button:hover {
     background-color: var(--highlight-color);
 }
 
-        .footer {
-            margin-top: 2rem;
-            padding: 1rem;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-        
-        .footer a {
-            display: inline-flex;
-            align-items: center;
-            color: gray;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer a:hover {
-            color: black;
-        }
-        
-        .footer img {
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-
 @media (max-width: 640px) {
     .container {
         padding: 12px;
@@ -250,4 +225,32 @@ button:hover {
     .font-size-control {
         align-self: center;
     }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 14px;
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer a:hover {
+    opacity: 0.8;
+}
+
+.footer img {
+    display: inline-block;
+    vertical-align: middle;
 }

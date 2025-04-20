@@ -209,17 +209,30 @@ Finally, the leaves started flying all around her, and Alice found herself in th
             this.currentWordIndex = 0;
         }
 
-        const text = words.slice(this.currentWordIndex).map(w => w.textContent).join(' ');
-        if (!text) return; // Guard against empty text
-            
-        this.utterance = new SpeechSynthesisUtterance(text);
+        // Collect individual words for better speech-text synchronization
+        const allWords = words.slice(this.currentWordIndex).map(w => w.textContent);
+        
+        // Create a utterance for the entire text (for smooth playback)
+        this.utterance = new SpeechSynthesisUtterance(allWords.join(' '));
         this.utterance.rate = parseFloat(this.speedControl.value);
         
+        // Track the last processed word to prevent getting ahead
+        let lastProcessedIndex = this.currentWordIndex - 1;
+        
         this.utterance.onboundary = (event) => {
-            if (this.currentWordIndex < words.length) {
-                words[this.currentWordIndex]?.classList.remove('active');
+            // Only process word boundaries (not character or sentence boundaries)
+            if (event.name === 'word' && this.currentWordIndex < words.length) {
+                // Make sure we don't skip ahead too quickly
+                if (this.currentWordIndex > lastProcessedIndex) {
+                    // Remove highlight from previous word
+                    words[lastProcessedIndex]?.classList.remove('active');
+                    // Highlight the current word
+                    words[this.currentWordIndex]?.classList.add('active');
+                    // Update last processed index
+                    lastProcessedIndex = this.currentWordIndex;
+                }
+                // Increment for next word boundary
                 this.currentWordIndex++;
-                words[this.currentWordIndex]?.classList.add('active');
             }
         };
 
@@ -237,10 +250,8 @@ Finally, the leaves started flying all around her, and Alice found herself in th
         try {
             this.speech.speak(this.utterance);
             this.isPlaying = true;
-            // Ensure we have a valid word to highlight
-            if (this.currentWordIndex < words.length) {
-                words[this.currentWordIndex].classList.add('active');
-            }
+            // Highlight the first word
+            words[this.currentWordIndex]?.classList.add('active');
         } catch (error) {
             console.error('Speech synthesis failed:', error);
             this.isPlaying = false;
